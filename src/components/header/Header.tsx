@@ -6,10 +6,15 @@ import LOGO from '@/assets/logo.svg';
 import Hamburger from '../hamburger/Hamburger';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import TransitionToLink from '../transition/TransitionToLink';
+import { CURRENT_URL_STATE, PREV_URL_STATE } from '@/@constants/Recoil';
 
 const Header = () => {
   const pathname = usePathname();
   const [isActive, setIsActive] = useState('-translate-y-full');
+
+  const [prevUrl, setPrevUrl] = useState(PREV_URL_STATE);
+  const [currentUrl, setCurrentUrl] = useState(CURRENT_URL_STATE);
 
   const handleTimer = () => {
     return setTimeout(() => {
@@ -18,6 +23,9 @@ const Header = () => {
   };
 
   useEffect(() => {
+    setPrevUrl(currentUrl);
+    setCurrentUrl(pathname);
+
     if (pathname === '/') {
       const timer = handleTimer();
 
@@ -30,14 +38,12 @@ const Header = () => {
   return (
     <>
       <header
-        className={`absolute top-0 z-10 h-[72px] w-full px-base font-montreal duration-500 ease-cubic-ease ${isActive}`}>
+        className={`px-base-compact absolute top-0 z-50 h-[72px] w-full font-montreal duration-500 ease-cubic-ease md:px-base ${isActive}`}>
         <div className='flex h-full items-center justify-between text-white'>
-          <Link href='/'>
+          <TransitionToLink href='/'>
             <Image src={LOGO} alt='Dep logo' className='max-w-[52px]' />
-          </Link>
-          <Link href={'/episode'} className='block text-[18px]'>
-            6 ep.sode
-          </Link>
+          </TransitionToLink>
+          <TransitionToLink href='/episode' label='6 ep.sode' className='block cursor-pointer text-[18px] font-bold' />
           <Hamburger />
         </div>
       </header>

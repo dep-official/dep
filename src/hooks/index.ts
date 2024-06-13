@@ -1,3 +1,3 @@
-import GetMetaData from "./GetMetaData";
+import GetMetaData from './GetMetaData';
 
-export {GetMetaData}
+export { GetMetaData };

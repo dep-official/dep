@@ -25,12 +25,12 @@ const Footer: React.FC<FooterType> = () => {
   }, []);
 
   return (
-    <footer className={`${convertPosition()} w-full bg-transparent font-montreal`}>
+    <footer className={`${convertPosition()} z-20 w-full bg-transparent font-montreal`}>
       <div className={`${isActive} duration-500 ease-cubic-ease`}>
         <MarqueeSlogan />
       </div>
 
-      <div className='flex items-center justify-between px-base text-[16px] text-white'>
+      <div className='px-base-compact flex items-center justify-between text-[16px] text-white md:px-base'>
         <ul className='flex gap-[16px]'>
           <li>
             <Link href='https://github.com/dep-official' target='_blank'>
@@ -41,7 +41,7 @@ const Footer: React.FC<FooterType> = () => {
             <Link href=''>Behance</Link>
           </li>
         </ul>
-        <span className='absolute left-1/2 -translate-x-1/2 transform text-[14px] text-gray'>
+        <span className='absolute left-1/2 hidden -translate-x-1/2 transform text-[14px] text-gray sm:block'>
           ⓒ Dep. ALL RIGHTS RESERVED.
         </span>
         <Clock />

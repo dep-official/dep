@@ -1,5 +1,4 @@
-import { CardEpisode } from '@/components';
-import TransitionGoToPage from '@/components/transition/TransitionGoToPage';
+import { CardEpisodeList } from '@/components';
 import { GetMetaData } from '@/hooks';
 
 export const metadata = GetMetaData({
@@ -10,9 +9,8 @@ export const metadata = GetMetaData({
 
 const Episode = () => {
   return (
-    <main className='mt-[76px] px-base'>
-      <TransitionGoToPage initStatus={true} />
-      <CardEpisode />
+    <main className='px-base-compact mt-[76px] min-h-screen md:px-base'>
+      <CardEpisodeList />
     </main>
   );
 };

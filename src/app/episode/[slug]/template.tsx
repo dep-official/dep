@@ -1,6 +1,6 @@
 'use client';
 
-import TransitionEpisode from '@/components/transition/TransitionEpisode';
+import { PageInEpisode } from '@/components';
 import { useEffect, useState } from 'react';
 
 export default function Template({ children }: { children: React.ReactNode }) {
@@ -12,8 +12,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
   return (
     <div>
-      <TransitionEpisode status={status} />
       {children}
+      <PageInEpisode status={status} />
     </div>
   );
 }

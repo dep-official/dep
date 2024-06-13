@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TransitionEpisode: React.FC<{ status: boolean }> = ({ status }) => {
+const PageInEpisode: React.FC<{ status: boolean }> = ({ status }) => {
   return (
     <div
       className={`fixed left-0 top-0 z-50 grid h-full w-full grid-cols-1 grid-rows-2 will-change-transform ${status ? '' : 'pointer-events-none'}`}>
@@ -14,4 +14,4 @@ const TransitionEpisode: React.FC<{ status: boolean }> = ({ status }) => {
   );
 };
 
-export default TransitionEpisode;
+export default PageInEpisode;

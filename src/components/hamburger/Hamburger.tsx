@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { GNB } from '../header/Header.data';
+import TransitionToLink from '../transition/TransitionToLink';
 
 const Hamburger = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +44,7 @@ const Hamburger = () => {
         <ul className='max-w-gothInner px-inner *:font-manrope mx-auto flex flex-col text-white !duration-300 *:py-[24px] *:text-[32px] *:transition-all lg:px-0 lg:*:text-[51px]'>
           {GNB.map(item => (
             <li key={item.id}>
-              <Link href={item.url}>{item.name}</Link>
+              <TransitionToLink href={item.url} label={item.name} />
             </li>
           ))}
         </ul>

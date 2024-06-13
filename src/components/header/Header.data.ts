@@ -4,7 +4,7 @@ export const GNB = [
   {
     id: uuid(),
     name: 'Episode',
-    url: '',
+    url: '/episode',
   },
   {
     id: uuid(),
