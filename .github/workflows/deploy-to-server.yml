@@ -23,8 +23,8 @@ jobs:
       #   run: | 
       #     echo "NEXT_PUBLIC_GRAPHQL_API_URL=${{ secrets.API_END_POINT }}" >> .env         
 
-      - name: create robot.txt & sitemap.xml
-        run: sh script/generate-sitemap.sh
+      # - name: create robot.txt & sitemap.xml
+      #   run: sh script/generate-sitemap.sh
 
       - name: Build the project
         run: |
