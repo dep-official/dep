@@ -59,8 +59,19 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           password: ${{ secrets.VPS_PASSWORD }} 
           port: 22
-          source: "package.json,ecosystem.config.js"
-          target: "public_html/"
+          source: "package.json"
+          target: "public_html"
+          strip_components: 1
+
+      - name: 원격 접속 배포
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_IP }}   
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWORD }} 
+          port: 22
+          source: "ecosystem.config.js"
+          target: "public_html"
           strip_components: 1
 
       - name: 원격 접속 배포
