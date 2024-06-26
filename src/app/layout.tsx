@@ -10,6 +10,28 @@ const montreal = localFont({
   variable: '--font-montreal',
 });
 
+const lineseed = localFont({
+  src: [
+    {
+      path: './fonts/LINESeedKR-Th.woff',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: './fonts/LINESeedKR-Rg.woff',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './fonts/LINESeedKR-Bd.woff',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  display: 'swap',
+  variable: '--font-lineseed',
+});
+
 const editorial = localFont({
   src: './fonts/PPEditorialOld-UltralightItalic.woff',
   display: 'swap',
@@ -30,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ko'>
-      <body className={`${montreal.variable} ${editorial.variable} bg-black`}>
+      <body className={`${montreal.variable} ${lineseed.variable} ${editorial.variable} bg-black`}>
         <RecoilRootWrapper>
           <div id='portal' />
           <Header />

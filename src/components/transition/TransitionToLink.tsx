@@ -1,9 +1,7 @@
 'use client';
 
-import { transitionState } from '@/state/state';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
 import PageTransition from './PageIn';
 import Portal from './Portal';
 
@@ -18,20 +16,17 @@ const TransitionToLink = ({ href, label, className, children }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [status, setStatus] = useRecoilState(transitionState);
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout | null = null;
 
     if (isTransitioning) {
+      if (href === '/') router.push(href);
+
       timeoutId = setTimeout(() => {
         router.push(href);
         setIsTransitioning(false);
-      }, 700);
-    }
-
-    if (href === '/') {
-      router.push(href);
+      }, 1000);
     }
 
     return () => {
@@ -39,12 +34,11 @@ const TransitionToLink = ({ href, label, className, children }: Props) => {
         clearTimeout(timeoutId);
       }
     };
-  }, [isTransitioning, href, router, setStatus]);
+  }, [isTransitioning, href, router]);
 
   const handleClick = () => {
     if (pathname !== href) {
       setIsTransitioning(true);
-      setStatus(true);
     }
   };
 

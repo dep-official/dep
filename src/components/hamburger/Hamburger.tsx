@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { GNB } from '../header/Header.data';
 import TransitionToLink from '../transition/TransitionToLink';
+import Menu from '../menu/Menu';
 
 const Hamburger = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,19 +37,6 @@ const Hamburger = () => {
         <div className={`${isOpen ? 'translate-y-[5.5px] rotate-[42deg] transform' : ''}`} />
         <div className={`${isOpen ? '-translate-y-[5.5px] -rotate-[42deg] transform' : ''}`} />
       </button>
-
-      <nav
-        className={`fixed left-0 top-0 z-10 h-screen w-full bg-[rgba(0,0,0,0.8)] pl-base pt-[248px] backdrop-blur-md transition-all duration-300 ${
-          isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
-        }`}>
-        <ul className='max-w-gothInner px-inner *:font-manrope mx-auto flex flex-col text-white !duration-300 *:py-[24px] *:text-[32px] *:transition-all lg:px-0 lg:*:text-[51px]'>
-          {GNB.map(item => (
-            <li key={item.id}>
-              <TransitionToLink href={item.url} label={item.name} />
-            </li>
-          ))}
-        </ul>
-      </nav>
     </div>
   );
 };

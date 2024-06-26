@@ -7,20 +7,25 @@ import uuid from 'react-uuid';
 import { useRouter } from 'next/navigation';
 import Portal from '../transition/Portal';
 import PageInEpisode from '../transition/PageInEpisode';
+import { useRecoilState } from 'recoil';
+import { episodeColorInit } from '@/state/state';
 
 const CardEpisode = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [status, setStatus] = useState(false);
   const [episodeTimeOut, setEpisodeTimeOut] = useState<NodeJS.Timeout | null>(null);
 
+  const [color, setColor] = useRecoilState(episodeColorInit);
+
   const router = useRouter();
 
-  const handleGoToEpisode = (url: string) => {
+  const handleGoToEpisode = (url: string, keyColor: string) => {
     setStatus(true);
+    setColor(keyColor);
 
     const timeout = setTimeout(() => {
       router.push(url);
-    }, 500);
+    }, 700);
 
     setEpisodeTimeOut(timeout);
   };
@@ -29,7 +34,7 @@ const CardEpisode = () => {
     return () => {
       if (episodeTimeOut) clearTimeout(episodeTimeOut);
     };
-  }, [episodeTimeOut]);
+  }, [episodeTimeOut, status]);
 
   return (
     <>
@@ -43,7 +48,7 @@ const CardEpisode = () => {
               className={`relative block h-[480px] cursor-pointer overflow-hidden duration-500 ease-cubic-ease`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              onClick={() => handleGoToEpisode(`/episode/${episode.slug}`)}>
+              onClick={() => handleGoToEpisode(`/episode/${episode.slug}`, episode.color)}>
               <Image
                 src={episode.thumbnail}
                 alt={episode.title}

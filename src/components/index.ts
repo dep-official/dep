@@ -11,8 +11,10 @@ import PageIn from './transition/PageIn';
 import Portal from './transition/Portal';
 import PageInEpisode from './transition/PageInEpisode';
 import TransitionToLink from './transition/TransitionToLink';
+import Menu from './menu/Menu';
 
 export {
+  Menu,
   TransitionToLink,
   PageInEpisode,
   Portal,

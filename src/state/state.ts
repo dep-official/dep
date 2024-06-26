@@ -1,4 +1,4 @@
-import { PREV_URL_STATE, TRANSITION_STATE, CURRENT_URL_STATE } from '@/@constants/Recoil';
+import { PREV_URL_STATE, TRANSITION_STATE, CURRENT_URL_STATE, EPISODE_COLOR_STATE } from '@/@constants/Recoil';
 import { atom } from 'recoil';
 
 const transitionState = atom({
@@ -16,4 +16,9 @@ const currentUrlState = atom({
   default: '/',
 });
 
-export { transitionState, prevUrlState, currentUrlState };
+const episodeColorInit = atom({
+  key: EPISODE_COLOR_STATE,
+  default: '#fff',
+});
+
+export { transitionState, prevUrlState, currentUrlState, episodeColorInit };

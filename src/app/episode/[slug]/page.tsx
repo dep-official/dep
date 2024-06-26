@@ -1,8 +1,19 @@
+'use client';
+
+import { episodeColorInit } from '@/state/state';
+import { useRecoilState } from 'recoil';
+
 const EpisodeDetail = () => {
+  const [color, setColor] = useRecoilState(episodeColorInit);
+
+  const style = {
+    backgroundColor: color,
+  };
+
   return (
-    <main className='h-screen'>
-      <div
-        className={`absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 object-cover text-lg font-bold text-white duration-500 ease-cubic-ease`}></div>
+    <main style={style} className='z-30'>
+      <div className='animate-scaleY h-screen origin-bottom bg-gray'></div>
+      <div className='flex h-full w-full items-center justify-center'>hello world</div>
     </main>
   );
 };

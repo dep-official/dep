@@ -1,0 +1,40 @@
+/* 
+.menu-bar, .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1
+} */
+
+/* .menu-bar, .menu-close  {
+    color: #000;
+    cursor: pointer;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 2em;
+    background-color: #c5fb45;
+    z-index: 2;
+    display: flex;
+} */
+
+.menu-close-icon {
+    flex: 2;
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+.menu-copy {
+    flex: 4;
+}

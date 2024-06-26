@@ -8,6 +8,7 @@ export const episodes = [
     thumbnail: lexusThumb,
     slug: 'lexus-collection',
     category: 'e-commerce',
+    color: '#000',
   },
   {
     title: 'VANS Station',
@@ -17,6 +18,7 @@ export const episodes = [
     category: 'website',
     hoverContent:
       'https://firebasestorage.googleapis.com/v0/b/pickstyle-6149c.appspot.com/o/images%2FVSS_RECAP_2023.mp4?alt=media&token=18029a8b-a66e-496e-bb5a-0be93379f030',
+    color: '#fff',
   },
   {
     title: 'ALOQ',
@@ -24,6 +26,7 @@ export const episodes = [
     thumbnail: '',
     slug: 'aloq',
     category: 'e-commerce',
+    color: '',
   },
   {
     title: 'Jindo Daemado',
@@ -31,6 +34,7 @@ export const episodes = [
     thumbnail: '',
     slug: 'jindo-daemado',
     category: 'website',
+    color: '',
   },
   {
     title: 'KELIM',
@@ -38,6 +42,7 @@ export const episodes = [
     thumbnail: '',
     slug: 'kelim',
     category: 'e-commerce',
+    color: '',
   },
   {
     title: 'Ohseo',
@@ -45,5 +50,6 @@ export const episodes = [
     thumbnail: '',
     slug: 'ohseo',
     category: 'e-commerce',
+    color: '',
   },
 ];

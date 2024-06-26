@@ -28,9 +28,11 @@ const config: Config = {
       fontFamily: {
         montreal: ["var(--font-montreal)"],
         editorial: ["var(--font-editorial)"],
+        lineseed: ["var(--font-lineseed)"],
       },
       colors: {
-        gray : '#3a3a3a'
+        gray : '#3a3a3a',
+        'black-200' : '#222',
       },
       spacing: {
         base : '50px',
@@ -54,12 +56,17 @@ const config: Config = {
         '0%': {scale: '0'},
         '100%': {scale: '1'},
       },
+      scaleY: {
+        '0%' : {transform: 'translateY(100%)'},
+        '100%': {transform: 'translateY(0)'}
+      }
     },
     animation: {
       fadeIn: 'fadeIn 2s cubic-bezier(.57,.27,.33,.91) forwards',
       pageIn: 'pageIn 500ms cubic-bezier(.57,.27,.33,.91) forwards',
       pageInHome : 'pageInHome 700ms cubic-bezier(.57,.27,.33,.91) forwards',
       pageOut: 'pageOut',
+      scaleY : 'scaleY 500ms cubic-bezier(.57,.27,.33,.91) forwards'
     },
   },
   plugins: [],

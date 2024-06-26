@@ -7,7 +7,6 @@ on:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,16 +16,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name : Cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.npm
-            ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
       - name: Install dependencies
         run: |
@@ -44,6 +33,39 @@ jobs:
           yarn build 
 
       - name: 원격 접속 배포
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_IP }}   
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWORD }} 
+          port: 22
+          source: ".next/"
+          target: "public_html/.next/"
+          strip_components: 1
+
+      - name: 원격 접속 배포
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_IP }}   
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWORD }} 
+          port: 22
+          source: "package.json"
+          target: "public_html/package.json"
+          strip_components: 1
+
+      - name: 원격 접속 배포
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_IP }}   
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWORD }} 
+          port: 22
+          source: "node_modules/"
+          target: "public_html/node_modules/"
+          strip_components: 1
+
+      - name: 원격 접속 배포
         uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{ secrets.VPS_IP }}        
@@ -53,8 +75,5 @@ jobs:
           script: |
             echo "Deploying to VPS server"
             cd public_html
-            git pull origin main
-            yarn install 
-            yarn build
             pm2 list
             yarn start-pm2
