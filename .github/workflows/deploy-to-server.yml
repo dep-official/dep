@@ -30,6 +30,17 @@ jobs:
         run: |
           yarn build 
 
+      - name: 지우기
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_IP }}        
+          username: ${{ secrets.VPS_USERNAME }}     
+          password: ${{ secrets.VPS_PASSWORD }}    
+          port: 22                             
+          script: |
+            rm -rf public_html
+            mkdir public_html
+
       - name: 원격 접속 배포
         uses: appleboy/scp-action@v0.1.7
         with:
