@@ -111,12 +111,12 @@ const About = () => {
       </section>
       <section className='flex h-screen flex-col items-center justify-center'>
         <span className='mb-[24px] text-[32px] font-bold text-gray'>{`hello {I am}`}</span>
-        <p className='text-center text-[48px] font-light text-black-200'>
+        {/* <p className='text-center text-[48px] font-light text-black-200'>
           사람들과 끊임없이 커뮤니케이션하고
           <br /> 배우고 공유하며 문제를 해결해가는 사람
           <br /> 그렇게 성장하는 사람이 좋은 디자이너이고
           <br /> 지속 가능한 디자이너라고 생각해요
-        </p>
+        </p> */}
       </section>
       <section className='grid h-screen grid-cols-3'>
         <div className='bg-gray'></div>
