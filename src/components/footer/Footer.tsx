@@ -21,7 +21,7 @@ const Footer: React.FC<FooterType> = () => {
 
   const initContact = [
     { title: '+82) 10-5660-7726', url: 'tel:010-5660-7726' },
-    { title: 'hi@ikik.co', url: 'mailto:hi@ikik.co' },
+    { title: 'contact@dep.team', url: 'mailto:contact@dep.team' },
   ];
 
   const convertPosition = () => {
